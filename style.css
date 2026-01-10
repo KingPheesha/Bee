@@ -13,7 +13,7 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family:'Courier New', Courier, monospace;
       color: var(--text);
       background-color: var(--bg);
       line-height: 1.6;
@@ -247,7 +247,7 @@
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 0.7fr 1.3fr;
       gap: 3rem;
       align-items: center;
     }
@@ -271,8 +271,7 @@
       align-items: center;
       justify-content: center;
       color: #000000;
-      font-weight: bold;
-      font-size: 1.2rem;
+      
     }
 
     /* Shop Section */
