@@ -54,7 +54,7 @@ body {
   55% {
     width: 38ch;
   }
-  90% {
+  95% {
     width: 0;
   }
   100% {
@@ -71,6 +71,29 @@ body {
   }
 }
 
+@keyframes aboutGlow {
+  0% {
+    transform: translateX(-160%) skewX(-15deg);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateX(-40%) skewX(-15deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(20%) skewX(-15deg);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateX(80%) skewX(-15deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(160%) skewX(-15deg);
+    opacity: 0.6;
+  }
+}
+
 .typewriter {
   display: inline-block;
   overflow: hidden;
@@ -78,7 +101,7 @@ body {
   border-right: 2px solid var(--gold);
   width: 0;
   max-width: 38ch;
-  animation: typing 6s steps(38,end) 0.5s infinite, blinkCursor 0.8s step-end infinite;
+  animation: typing 10s steps(38,end) 0.2s infinite, blinkCursor 0.8s step-end infinite;
 }
 
 
@@ -184,11 +207,25 @@ nav {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #12151b 0%, var(--dark-2) 65%, rgba(211, 184, 111, 0.10) 100%);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #12151b 0%, var(--dark-2) 65%, rgba(211, 184, 111, 0.16) 100%);
   padding: 6rem 2rem;
   text-align: center;
   border-bottom: 1px solid rgba(211, 184, 111, 0.22);
   animation: fadeIn 0.9s ease-out;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(211,184,111,0.35) 0%, transparent 22%, rgba(255,255,255,0.16) 42%, transparent 68%, rgba(211,184,111,0.24) 100%);
+  transform: translateX(-120%) skewX(-15deg);
+  filter: blur(28px);
+  opacity: 0.72;
+  pointer-events: none;
+  animation: aboutGlow 16s linear infinite;
 }
 
 .hero-content {
@@ -306,13 +343,29 @@ nav {
 
 /* About Section */
 .about {
-  background: linear-gradient(135deg, var(--dark-1) 0%, var(--bg) 100%);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--dark-1) 0%, #171c24 55%, var(--bg) 100%);
   padding: 4rem 2rem;
   margin: 3rem 0;
   animation: fadeIn 0.8s ease-out 0.4s both;
 }
 
+.about::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(211,184,111,0.40) 0%, transparent 18%, rgba(255,255,255,0.18) 40%, transparent 70%, rgba(211,184,111,0.28) 100%);
+  transform: translateX(-120%) skewX(-15deg);
+  filter: blur(24px);
+  opacity: 0.75;
+  pointer-events: none;
+  animation: aboutGlow 16s linear infinite;
+}
+
 .about-content {
+  position: relative;
+  z-index: 1;
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
